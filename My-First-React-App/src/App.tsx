@@ -9,7 +9,11 @@ function App() {
     "Boston Celtics",
   ];
 
-  return <div><ListGroup items={items} heading="Basketball Teams"/></div>;
+  const handleSelectItem = (item: string) => {
+    console.log(item);
+  }
+
+  return <div><ListGroup items={items} heading="Basketball Teams" onSelectItem={handleSelectItem}/></div>;
 }
 
 export default App;
