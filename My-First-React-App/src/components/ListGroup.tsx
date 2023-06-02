@@ -1,33 +1,29 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let teams = [
-    "Golden State Warriors",
-    "Miami Heat",
-    "Los Angeles Lakers",
-    "Portland Trail Blazers",
-    "Boston Celtics",
-  ];
+// {items:[], heading:string}
+interface Props{
+    items: string[];
+    heading: string;
+}
+
+function ListGroup({items, heading}: Props) {
 
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  // Event handler
-  
-
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
 
-      {teams.length == 0 && <p>No teams found</p>}
+      {items.length == 0 && <p>No items found</p>}
 
       <ul className="list-group">
-        {teams.map((team, index) => (
+        {items.map((item, index) => (
           <li
             className={ selectedIndex == index ? 'list-group-item active' : 'list-group-item'}
-            key={team}
+            key={item}
             onClick={() => {setSelectedIndex(index);} }
           >
-            {team}
+            {item}
           </li>
         ))}
       </ul>
