@@ -2,32 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-// let i = 1;
-// const element = <h1>{ (i == 1) ? "Hello World!" : "Goodbye World!" }</h1>;
+// Component to be extracted
+function MenuItems (props) {
+  const item = props.item;
+  return <li key={item.toString()}> {item} </li>;
+}
 
-
-// const element2 = <div>
-//                   <h1>This is Heading 1</h1>
-//                   <h2>This is Heading 2</h2>
-//                   <h3>This is Heading 3</h3>
-//                 </div>;
-
-function Navmenu (props) {
+// Component that will return an unordered list
+function Navmenu(props) {
   const list = props.menuitems;
-
-  const updatedList = list.map((listitems)=>{
-    return (
-      <li key={listitems.toString()}>
-        {listitems}
-      </li>
-    );
+  const updatedList = list.map((listItems) => {
+      return <MenuItems key={listItems.toString()} item={listItems} />;
   });
 
-  return(
-    <ul>
-      {updatedList}
-    </ul>
-  );
+  return <ul>{updatedList}</ul>;
 }
 
 const menuitems = [1, 2, 3, 4, 5, 6];
