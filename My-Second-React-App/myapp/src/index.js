@@ -16,7 +16,11 @@ function Navmenu (props) {
   const list = props.menuitems;
 
   const updatedList = list.map((listitems)=>{
-    return <li>{listitems}</li>;
+    return (
+      <li key={listitems.toString()}>
+        {listitems}
+      </li>
+    );
   });
 
   return(
