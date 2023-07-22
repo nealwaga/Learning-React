@@ -46,4 +46,4 @@ class Clock extends React.Component {
 ReactDOM.render(
   <Clock title="GeeksforGeeks" />,
   document.getElementById("root")
-)
+);
